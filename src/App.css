@@ -8,8 +8,83 @@
     transition: display 1.5s linear;
 }
 
+.App{
+    /* background-image: url("./assets/bladerunner.png") ;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+
+    /* scroll-snap-type: y mandatory; */
+    /* overflow-y:auto; */
+
+}
+
+.d {
+    scroll-snap-align: start;
+}
+
+canvas {
+    top: 0;
+    left: 0;
+    position: static;
+    height: 100vh;
+    width: 100%;
+}
+
+text {
+    font-family: 'Raleway', sans-serif;
+    stroke-dasharray: 110%;
+    stroke-dashoffset: 110%;
+    animation: draw 3s forwards .5s, drawFill 1s forwards 2s ;
+
+}
+
+.anim:hover {
+    animation: hoverDraw 2s ease;
+}
+
+@keyframes hoverDraw {
+  0%   { stroke-dashoffset: -10%; fill: rgba(0,0,0,0); }
+  100% { stroke-dashoffset: 110%; }
+}
+
+@keyframes drawFill {
+    0%   { fill: rgba(0,0,0,0); }
+    100% { fill: rgb(0, 0, 0) }
+}
+
+@keyframes draw {
+    100% {
+      stroke-dashoffset: 0%;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .s1 {
         display: none;
     }
+}
+
+.shiny {
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+.shiny::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: calc(var(--y, 0) * 1px - 40px);
+    left: calc(var(--x, 0) * 1px - 40px);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(rgba(221, 218, 252, 1), #00000000 80%);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  
+.shiny:hover::after {
+    opacity: 0.4;
 }

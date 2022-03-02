@@ -1,9 +1,10 @@
 import React from 'react';
+import { AboutMeContainer, } from './aboutMeElements'
 
 export const AboutMe = () => {
   return (
-    <div id='AboutMe'>
+    <AboutMeContainer id='AboutMe'>
         AboutMe
-    </div>
+    </AboutMeContainer>
     )
 };
