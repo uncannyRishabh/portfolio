@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
-import { Content, HomeContainer,
+import { Content, EmojiSpan, HomeContainer,
     IntroL1, IntroL2} from './heroSection'
 import { useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import '../../App.css'
 
-export const HeroSection = () => {
+export const HeroSection = ({isDark}) => {
     
-    window.addEventListener('DOMContentLoaded', () => {
-        console.log("LOADED")
-    })
+    // window.addEventListener('DOMContentLoaded', () => {
+        // console.log("LOADED")
+    // })
     
 
     // const timingFunction = (t,b,c,d) => {
@@ -46,26 +46,42 @@ export const HeroSection = () => {
     // }
 
 
-    const controls = useAnimation();
+    const controls = useAnimation()
     const [ref, inView] = useInView();
+    
     useEffect(() => {
         if (inView) {
           controls.start("show")
-          console.log('in view')
+          
+          document.getElementById('emoji').animate([
+            { transform: 'rotate( 0.0deg)' }, 
+            { transform: 'rotate(14.0deg)' },
+            { transform: 'rotate(-8.0deg)' },
+            { transform: 'rotate(14.0deg)' },
+            { transform: 'rotate(-4.0deg)' },
+            { transform: 'rotate(10.0deg)' },
+            { transform: 'rotate( 0.0deg)' },
+            { transform: 'rotate( 0.0deg)' }
+          ], {
+                delay: 1000,
+                duration: 1200,
+                iterations: 1,
+            })
+
+          // console.log('in view')
         }
         else{
             controls.start("hidden")
         }
-      }, [controls, inView])
+      })
         
     const container = {
-        hidden: { opacity: 0.1 },
+        hidden: {},
         show: {
-            opacity: 1,
             transition: {
-                duration: 1,
-                type:"tween",
-                staggerChildren: 0.12,
+                duration: 0,
+                staggerChildren: 0.15,
+                when: "beforeChildren",
             },
           },
       }
@@ -76,18 +92,19 @@ export const HeroSection = () => {
       }
 
     return (
-        <HomeContainer id='Home'>
+        <HomeContainer id='Home' isDark = {isDark}>
             <Content id='hBody'
                 ref={ref}
                 variants={container}
                 animate={controls}
-                initial={"hidden"}                
+                initial={"hidden"}
+                transition={{ type: "inertia", velocity: 50 }}
                 >
-                <IntroL1 id='ht1' variants={item}>Hi 👋,</IntroL1>
-                <IntroL1 id='ht2' variants={item}>I’m Rishabh,</IntroL1>
-                <IntroL2 id='ht3' variants={item}>and I develop for Android 📱 and Web 🕸️</IntroL2>
+                <IntroL1 id='ht1' isDark = {isDark} variants={item}>Hey  
+                <EmojiSpan id='emoji'>👋</EmojiSpan> ,</IntroL1>
+                <IntroL1 id='ht2' isDark = {isDark} variants={item}>this is Rishabh,</IntroL1>
+                <IntroL2 id='ht3' isDark = {isDark} variants={item}>and I develop for Android 📱 and Web 🕸️</IntroL2>
             </Content>
         </HomeContainer>
-
     )
 }

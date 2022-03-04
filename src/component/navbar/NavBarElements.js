@@ -1,17 +1,18 @@
 import styled,{keyframes} from "styled-components";
 import { Link } from "react-scroll";
+import {dark, light} from '../../assets/colors'
+
 
 export const Nav = styled.div`
-    background-color: rgba(0,0,0,0);
     height: 70px;
-    width: 100%;
+    width: 94%;
     margin-top: 24px;
+    margin-inline: 3%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
     z-index: 1;
-
 `
 
 export const NavbarContainer = styled.div`
@@ -21,7 +22,7 @@ export const NavbarContainer = styled.div`
     align-items: center;
     transition: display .5s ease-in-out;
     justify-content: space-between;
-    
+    margin-left: 22px;
     @media screen and (max-width : 768px){
         height: 100%;
         width: 90%;
@@ -55,14 +56,15 @@ const SlideIn = keyframes`
 `
 
 export const Logo = styled.div`
-    color: white;
+    color: ${({isDark}) => (isDark ? '#fff' : '#000')};
     overflow: hidden;
     display: flex;
     flex-direction: row;
+    transition: all .5s ease-in-out;
 `
 
 export const SLogo = styled.span`
-    color: white;
+    color: ${({isDark}) => (isDark ? '#fff' : '#000')};
     /* background-color: #ffa; */
     display: flex;
     flex-direction: row;
@@ -73,6 +75,7 @@ export const SLogo = styled.span`
     font-family: "Manrope", Helvetica, sans-serif;
     font-weight: 300;
     letter-spacing: 0.05em;
+    transition: all .5s ease-in-out;
     @media screen and (max-width:768px){
         /* display: none; */
         animation : ${SlideIn} .5s ease-in-out;
@@ -93,29 +96,39 @@ export const NavlinkContainer = styled.div`
     border-radius: 16px;
     backdrop-filter: blur(6px);
     overflow: hidden;
-    background: rgba(245, 245, 255, 0.08);
+    background: ${({isDark}) => (isDark ? dark.navContainer : light.navContainer)};
     box-shadow: 3px 3px 10px -6px rgba(0, 0, 0, 0.25);
-    transition: all 0.4s ease-in-out;
+    transition: all 1s ease-in-out;
 
     @media screen and (max-width: 768px){
         position: fixed;
         bottom: 28px;
         left: 50%;
-        width: 72%;
+        width: 84%;
         padding: 22px;
         padding-inline: 28px;
         transform: translate(-50%);
     }
+
+    @media screen and (max-width: 600px) {
+        width: 74%;
+    }
 `
 
 export const NavLinks = styled(Link)`
-    color: #fff;
+    color: ${({isDark}) => (isDark ? dark.navLink : light.navLink)};
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-size: 14px;
+    font-weight: 500;
     letter-spacing: 0.04em;
-    text-shadow: 1px 4px 4px rgba(0,0,0,.2);
+    text-shadow: 0px 0px 6px ${({isDark}) => (isDark ? dark.textShadow : light.textShadow)};
     cursor: pointer;
     transition: all 0.5s ease-in-out;
+
+    :hover {
+        color: rgb(42,56,60);
+    }
+
     @media screen and (max-width: 482px){
         font-size: 11px;
         font-weight: 300;
@@ -125,4 +138,8 @@ export const NavLinks = styled(Link)`
 export const HomeLink = styled(Link)`
     cursor: pointer;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+`
+export const Lottie = styled.div`
+    height: 86px;
+    width: 86px;
 `

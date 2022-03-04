@@ -67,7 +67,7 @@ text {
 }
 
 .shiny {
-    color: white;
+    color: rgb(34, 38, 48);
     position: relative;
     overflow: hidden;
   }
@@ -76,15 +76,15 @@ text {
     content: "";
     position: absolute;
     z-index: -1;
-    top: calc(var(--y, 0) * 1px - 40px);
-    left: calc(var(--x, 0) * 1px - 40px);
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(rgba(221, 218, 252, 1), #00000000 80%);
+    top: calc(var(--y, 0) * 1px - 50px);
+    left: calc(var(--x, 0) * 1px - 50px);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(rgba(221, 218, 252, .3), #00000000 80%);
     opacity: 0;
-    transition: opacity 0.2s;
+    transition: opacity 0.2;
   }
   
 .shiny:hover::after {
-    opacity: 0.4;
+    opacity: 0.3;
 }

@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react'
 import {Nav, NavbarContainer,
-    Logo, SLogo,
+    Logo, SLogo,Lottie,
     NavlinkContainer,
-    NavLinks, HomeLink} from './NavBarElements';
-import '../../App.css'
+    NavLinks, HomeLink} from './NavBarElements'
+import lottie from "lottie-web/build/player/lottie_light"
+import lottieToggle from '../../assets/dark-mode.json'
 
-export const NavBar = () => {
+import '../../App.css'
+import { useCallback } from 'react/cjs/react.development'
+
+export const NavBar = ({isDark, toggle}) => {
 
     // window.onscroll = function() {
     //     let top = window.scrollY
@@ -20,32 +24,77 @@ export const NavBar = () => {
     //     }
     // }
 
-    const buttonRef = React.useRef(null)
+    //ADDING .shine CLASS ON load
+    
+    
+
+    let [width, updateWidth] = useState(window.innerWidth)
+    updateWidth = () => width = window.innerWidth
 
     const mouseMove = (e) => {
-        const { x, y } = buttonRef.current.getBoundingClientRect();
-        buttonRef.current.style.setProperty('--x', e.clientX - x);
-        buttonRef.current.style.setProperty('--y', e.clientY - y);
+        const mNavlinkContainer = document.getElementById('navlinkContainer')
+        const { x, y } = mNavlinkContainer.getBoundingClientRect()
+        mNavlinkContainer.style.setProperty('--x', e.clientX - x)
+        mNavlinkContainer.style.setProperty('--y', e.clientY - y)
     }
-
-    // let width = window.innerWidth
-    // window.onresize(() => {
-    //     width = window.innerWidth
-    // })
-
-    useEffect(() => {
-        if(window.innerWidth > 580 ){
-            document.getElementById('navlinkContainer').classList.add('shiny')
-            console.log(window.innerWidth)
-            if(buttonRef) {
-                buttonRef.current.addEventListener('mousemove', mouseMove)
-            }
+    
+    const displayShiningHover = useCallback(() => {
+        const mNavlinkContainer = document.getElementById('navlinkContainer')
+        if(width > 580 ){
+            mNavlinkContainer.classList.add('shiny')
+            mNavlinkContainer.addEventListener('mousemove', mouseMove)
         }
         else{
-            document.getElementById('navlinkContainer').classList.remove('shiny')
+            mNavlinkContainer.classList.remove('shiny')
         }
-        return () => buttonRef.current.removeEventListener('mousemove', mouseMove)
-    })
+    },[width])
+
+    const reRenderDOM = useCallback(() => {
+        updateWidth()
+        displayShiningHover()
+    }, [displayShiningHover])
+
+    window.addEventListener('resize', reRenderDOM)
+
+    useEffect(() => {
+        window.addEventListener('load', () => displayShiningHover())
+        reRenderDOM()
+        return () => document.getElementById('navlinkContainer').removeEventListener('mousemove', mouseMove)
+    },[reRenderDOM,displayShiningHover])
+
+
+    //ANIMATING NIGHT MODE TOGGLE
+
+    const [animation, setAnimation] = useState({})
+    
+    const container  = document.querySelector("#darktoggle")
+
+    useEffect(() => {
+        setAnimation(lottie.loadAnimation({
+            container: container,
+            animationData : lottieToggle,
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            duration: 1
+        }))
+
+      }, [container]);
+
+      useEffect(() => {
+          if(isDark) animation.playSegments([[40,45],[45,100]], true)
+      },[isDark,animation])
+
+    const animate = () => {
+        toggle()
+        if(isDark){
+            animation.playSegments([[100,58],[58,55]], true)
+        }
+        else {
+            animation.playSegments([[40,45],[45,100]], true)
+        }
+    }
+
 
     return (
         <Nav id="Nav">
@@ -55,26 +104,46 @@ export const NavBar = () => {
                         spy={true}
                         smooth={true}
                         offset={-80}
-                        duration={500}>
-                    <Logo>
-                        {'<'}<SLogo>uncannyRishabh</SLogo>{'>'}
+                        duration={500}
+                        >
+                    <Logo isDark = {isDark}>
+                        {'<'}<SLogo isDark = {isDark}>uncannyRishabh</SLogo>{'>'}
                     </Logo>
-                    {/* <SLogo>{'<'}/{'>'}</SLogo> */}
                 </HomeLink>
                 
                 <NavlinkContainer id='navlinkContainer'
-                 ref={buttonRef}>
+                 isDark = {isDark}>
                     <NavLinks to='AboutMe'
                         activeClass="active"
                         spy={true}
                         smooth={true}
                         offset={-80}
-                        duration={500}>ABOUTME</NavLinks>
-                    <NavLinks>PROJECTS</NavLinks>
-                    <NavLinks>SKILLS</NavLinks>
-                    <NavLinks>HOBBIES</NavLinks>
+                        duration={500}
+                        isDark = {isDark}>ABOUT ME</NavLinks>
+                    <NavLinks to='AboutMe'
+                        activeClass="active"
+                        spy={true}
+                        smooth={true}
+                        offset={-80}
+                        duration={500}
+                        isDark = {isDark}>PROJECTS</NavLinks>
+                    <NavLinks to='AboutMe'
+                        activeClass="active"
+                        spy={true}
+                        smooth={true}
+                        offset={-80}
+                        duration={500}
+                        isDark = {isDark}>SKILLS</NavLinks>
+                    <NavLinks to='AboutMe'
+                        activeClass="active"
+                        spy={true}
+                        smooth={true}
+                        offset={-80}
+                        duration={500}
+                        isDark = {isDark}>HOBBIES</NavLinks>
                 </NavlinkContainer>
         </NavbarContainer>
+        <Lottie id="darktoggle" onClick={animate}/>
         </Nav>
         
   )
