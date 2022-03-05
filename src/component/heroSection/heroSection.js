@@ -11,7 +11,7 @@ export const HomeContainer = styled.div`
     perspective: 1000px;
     overflow: hidden;
     background-color: ${({isDark}) => (isDark ? dark.homeBackground : light.homeBackground)};
-    transition: background-color 1s ease-in-out;
+    transition: background-color .7s ease-in-out;
     /* background-image: linear-gradient(to bottom , #695DEE, #D96A6A); */
 `
 

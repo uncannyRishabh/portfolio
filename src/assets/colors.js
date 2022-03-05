@@ -1,6 +1,6 @@
 export const light = {
-    h1Text : '#000',
-    h2Text : 'rgb(20,20,20)',
+    h1Text : 'rgb(30,20,30)',
+    h2Text : 'rgb(60,40,60)',
     homeBackground : 'rgb(247,240,223)',
     navLink : "rgb(82,72,248)",
     navContainer : "rgba(102,102,102,.4)",

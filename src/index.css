@@ -4,25 +4,29 @@
     font-family: "Poppins", Helvetica, sans-serif;
     -ms-overflow-style: none;
     scrollbar-gutter: auto;
-
+    
 }
 
 /* html {scroll-snap-type: y proximity} */
 
+:root {
+    --track_bg : #fff;
+    --thumb_bg : rgb(240, 0, 60);
+}
+
 ::-webkit-scrollbar {
-    width: 8px;
-    background: #fff;
+    width: 10px;
+    background-color: var(--track_bg);
     /* background: linear-gradient(to bottom , #695DEE, #D96A6A); */
 }
 
+/* 
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0);
-}
+    border-radius: 2px;
+} */
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 58px;
-    margin: 4px;
-    background: rgb(131, 127, 128);
+    border-radius: 8px;
+    background: var(--thumb_bg);
+    transition: all 1s;
 }

@@ -8,9 +8,12 @@ function App() {
   const [isDark, toggleDark] = useState(false);
   const toggle = () => (toggleDark(!isDark))
 
+  
+
   useEffect(() => {
     const json = localStorage.getItem("site-dark-mode");
     const currentMode = JSON.parse(json);
+
     if (currentMode) {
       toggleDark(true);
     } else {
@@ -22,6 +25,21 @@ function App() {
     const json = JSON.stringify(isDark);
     localStorage.setItem("site-dark-mode", json);
   })
+
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--track_bg',
+      'rgb(247,240,223)'
+      // (isDark ? '#000' : 'rgb(247,240,223)')
+      )
+
+      document.documentElement.style.setProperty(
+        '--thumb_bg',
+        // 'rgb(247,240,223)'
+        (!isDark ? 'rgb(30,20,30)' : 'rgb(30,22,102)')
+      )
+
+  },[isDark])
 
   return (
     <div className="App">

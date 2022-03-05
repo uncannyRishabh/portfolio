@@ -8,17 +8,17 @@
     transition: display 1.5s linear;
 }
 
-.App{
-    /* background-image: url("./assets/bladerunner.png") ;
+/* .App{
+    background-image: url("./assets/bladerunner.png") ;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat;
 
-    /* scroll-snap-type: y mandatory; */
-    /* overflow-y:auto; */
+    scroll-snap-type: y mandatory;
+    overflow-y:auto;
 
-}
+} */
 
 .d {
     scroll-snap-align: start;
