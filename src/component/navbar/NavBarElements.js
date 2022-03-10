@@ -126,12 +126,13 @@ export const NavLinks = styled(Link)`
     transition: all 0.5s ease-in-out;
 
     :hover {
-        color: rgb(42,56,60);
+        transition: text-shadow 0.2s ease-in-out;
+        text-shadow: 0px 0px 8px ${({isDark}) => (isDark ? dark.textShadowHover : light.textShadowHover)};
     }
 
     @media screen and (max-width: 482px){
         font-size: 11px;
-        font-weight: 300;
+        /* font-weight: 300; */
     }
 `
 
@@ -139,6 +140,7 @@ export const HomeLink = styled(Link)`
     cursor: pointer;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 `
+
 export const Lottie = styled.div`
     height: 86px;
     width: 86px;

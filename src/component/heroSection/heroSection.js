@@ -4,13 +4,13 @@ import {dark, light} from '../../assets/colors'
 
 export const HomeContainer = styled.div`
     display: flex;
+    order: 1;
     height: 100vh;
     width: 100%;
     align-items: center;
     justify-content: center;
-    perspective: 1000px;
     overflow: hidden;
-    background-color: ${({isDark}) => (isDark ? dark.homeBackground : light.homeBackground)};
+    background-color: ${({isDark}) => (isDark ? dark.appBackground : light.appBackground)};
     transition: background-color .7s ease-in-out;
     /* background-image: linear-gradient(to bottom , #695DEE, #D96A6A); */
 `

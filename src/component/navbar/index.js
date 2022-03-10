@@ -133,14 +133,14 @@ export const NavBar = ({isDark, toggle}) => {
                         smooth={true}
                         offset={-80}
                         duration={500}
-                        isDark = {isDark}>SKILLS</NavLinks>
+                        isDark = {isDark}>EXPERIENCE</NavLinks>
                     <NavLinks to='AboutMe'
                         activeClass="active"
                         spy={true}
                         smooth={true}
                         offset={-80}
                         duration={500}
-                        isDark = {isDark}>HOBBIES</NavLinks>
+                        isDark = {isDark}>CONTACT</NavLinks>
                 </NavlinkContainer>
         </NavbarContainer>
         <Lottie id="darktoggle" onClick={animate}/>

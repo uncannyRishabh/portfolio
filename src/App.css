@@ -1,63 +1,27 @@
-.para {
-    color: white;
-    
-}
-
-.s1 {
-    display: inline-block;
-    transition: display 1.5s linear;
-}
-
-/* .App{
-    background-image: url("./assets/bladerunner.png") ;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    scroll-snap-type: y mandatory;
-    overflow-y:auto;
-
-} */
-
-.d {
-    scroll-snap-align: start;
-}
 
 canvas {
-    top: 0;
-    left: 0;
-    position: static;
-    height: 100vh;
+    top: 0%;
+    left: 0%;
     width: 100%;
+    height: 100%;
+    order: 2;
+    display: block;
 }
 
-text {
-    font-family: 'Raleway', sans-serif;
-    stroke-dasharray: 110%;
-    stroke-dashoffset: 110%;
-    animation: draw 3s forwards .5s, drawFill 1s forwards 2s ;
-
+*[data-diagram] {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    /* position: fixed; */
 }
 
-.anim:hover {
-    animation: hoverDraw 2s ease;
+.left {
+    float: left;
+    margin-right: .25em;
 }
-
-@keyframes hoverDraw {
-  0%   { stroke-dashoffset: -10%; fill: rgba(0,0,0,0); }
-  100% { stroke-dashoffset: 110%; }
-}
-
-@keyframes drawFill {
-    0%   { fill: rgba(0,0,0,0); }
-    100% { fill: rgb(0, 0, 0) }
-}
-
-@keyframes draw {
-    100% {
-      stroke-dashoffset: 0%;
-    }
+.right {
+    float: right;
+    margin-left: .25em;
 }
 
 @media screen and (max-width: 768px) {

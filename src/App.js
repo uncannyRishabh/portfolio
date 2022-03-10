@@ -3,12 +3,11 @@ import './App.css';
 import { AboutMe } from './component/aboutMe';
 import { HeroSection } from './component/heroSection';
 import { NavBar } from './component/navbar';
+import Project from './component/projects';
 
 function App() {
   const [isDark, toggleDark] = useState(false);
   const toggle = () => (toggleDark(!isDark))
-
-  
 
   useEffect(() => {
     const json = localStorage.getItem("site-dark-mode");
@@ -28,15 +27,13 @@ function App() {
 
   useEffect(() => {
     document.documentElement.style.setProperty(
-      '--track_bg',
-      'rgb(247,240,223)'
-      // (isDark ? '#000' : 'rgb(247,240,223)')
+      '--bg',
+      (isDark ? '#0D0E1B' : 'rgb(247,240,223)')
       )
 
       document.documentElement.style.setProperty(
         '--thumb_bg',
-        // 'rgb(247,240,223)'
-        (!isDark ? 'rgb(30,20,30)' : 'rgb(30,22,102)')
+        (!isDark ? 'rgb(30,20,30)' : 'rgba(255, 255, 255, 0.35)')
       )
 
   },[isDark])
@@ -46,6 +43,7 @@ function App() {
       <NavBar isDark={isDark} toggle={toggle}/>
       <HeroSection isDark={isDark}/>
       <AboutMe />
+      <Project/>
     </div>
   );
 }

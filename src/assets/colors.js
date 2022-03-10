@@ -1,17 +1,19 @@
 export const light = {
     h1Text : 'rgb(30,20,30)',
     h2Text : 'rgb(60,40,60)',
-    homeBackground : 'rgb(247,240,223)',
-    navLink : "rgb(82,72,248)",
+    appBackground : 'rgb(247,240,223)',
+    navLink : "rgb(30,20,30)",
     navContainer : "rgba(102,102,102,.4)",
     textShadow : "rgba(20,20,20,.5)",
+    textShadowHover : "rgba(15,15,15,.5)",
 }
 
 export const dark = {
     h1Text : '#fff',
-    h2Text : 'rgb(210,210,210)',
-    homeBackground : '#000',
-    navLink : "rgb(52,52,58)",
-    navContainer : "rgba(220,220,220,.4)",
-    textShadow : "rgba(210,210,210,1)"
+    h2Text : '#99A1E7',
+    appBackground : '#0D0E1B',
+    navLink : "#000",
+    navContainer : "rgba(255,255,255,.5)",
+    textShadow : "rgba(0,0,0,.2)",
+    textShadowHover : "rgba(255,255,255,.8)",
 }
