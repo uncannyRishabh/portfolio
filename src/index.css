@@ -9,11 +9,16 @@
 :root {
     --bg : rgb(247,240,223);
     --thumb_bg : rgba(255, 255, 255, 0.35);
+    --wc_radius :17
 }
 
 html {
     background-color: var(--bg);
     transition: background-color .7s ease-in-out;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {

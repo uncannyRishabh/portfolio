@@ -6,6 +6,7 @@ export const light = {
     navContainer : "rgba(102,102,102,.4)",
     textShadow : "rgba(20,20,20,.5)",
     textShadowHover : "rgba(15,15,15,.5)",
+    bwText : "#000",
 }
 
 export const dark = {
@@ -16,4 +17,5 @@ export const dark = {
     navContainer : "rgba(255,255,255,.5)",
     textShadow : "rgba(0,0,0,.2)",
     textShadowHover : "rgba(255,255,255,.8)",
+    bwText : "#fff",
 }

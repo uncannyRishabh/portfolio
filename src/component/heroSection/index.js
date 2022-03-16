@@ -1,23 +1,32 @@
 import React, { useEffect } from 'react'
 import { Content, EmojiSpan, HomeContainer,
-    IntroL1, IntroL2} from './heroSection'
+    IntroL1, IntroL2, CCanvas
+    ,CanvasContainer} from './heroSection'
 import { useAnimation } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import '../../App.css'
-import { Canvas } from 'react-three-fiber'
 import { CustomSphere } from './CustomSphere'
 import { OrthographicCamera, TrackballControls } from '@react-three/drei'
-import { init } from '../../three-scripts/threeStarter'
+import { useIsIntersecting } from '../../utils/IntersectionObserver'
+// import { init } from '../../three-scripts/threeStarter'
 
-export const HeroSection = ({isDark}) => {
+export const HeroSection = ({isdark}) => {
 
-    window.addEventListener('DOMContentLoaded',()=>{
-        init()
-    })
+    // window.addEventListener('DOMContentLoaded',()=>{
+        // init()
+    // })
+
+    
 
     const controls = useAnimation()
-    const [ref, inView] = useInView();
     
+    const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5
+    }
+
+    const [ref , inView] = useIsIntersecting(options)
+
     useEffect(() => {
         if (inView) {
           controls.start("show")
@@ -37,7 +46,7 @@ export const HeroSection = ({isDark}) => {
                 iterations: 1,
             })
 
-          // console.log('in view')
+        //   console.log('in view H')
         }
         else{
             controls.start("hidden")
@@ -47,7 +56,7 @@ export const HeroSection = ({isDark}) => {
     const container = {
         hidden: {
             transition:{
-                duration: 0,
+                duration: 2,
             },
         },
         show: {
@@ -65,30 +74,31 @@ export const HeroSection = ({isDark}) => {
       }
 
     return (
-        <HomeContainer id='Home' isDark = {isDark}>
-            <Content id='hBody'
-                ref={ref}
+        <HomeContainer id='Home' isdark = {isdark}
+        ref={ref}
                 variants={container}
-                animate={controls}
                 initial={"hidden"}
-                transition={{ type: "inertia", velocity: 250 }}
-                >
-                <IntroL1 id='ht1' isDark = {isDark} variants={item}>Hey  
+                animate={controls}>
+            <Content id='hBody'>
+                <IntroL1 id='ht1' isdark = {isdark} variants={item}>Hey  
                 <EmojiSpan id='emoji'>👋</EmojiSpan> ,</IntroL1>
-                <IntroL1 id='ht2' isDark = {isDark} variants={item}>this is Rishabh,</IntroL1>
-                <IntroL2 id='ht3' isDark = {isDark} variants={item}>and I develop for Android 📱 and Web 🕸️</IntroL2>
+                <IntroL1 id='ht2' isdark = {isdark} variants={item}>this is Rishabh,</IntroL1>
+                <IntroL2 id='ht3' isdark = {isdark} variants={item}>and I develop for Android 📱 and Web 🕸️</IntroL2>
             </Content>
 
-            {/* <Canvas >
-                <OrthographicCamera makeDefault position={[3, 0, 10]} zoom={65} >
-                    <ambientLight/>
-                    <pointLight color="white" position={[0, 5, 5]} />
-                    <directionalLight color="hotpink" position={[0, 5, 5]} />
-                </OrthographicCamera>
-                <TrackballControls noZoom={true} noPan={true}/>
-                <CustomSphere color={"red"}/>
-            </Canvas> */}
-            <span data-diagram="box" id='dSphere' ></span>
+            <CanvasContainer>
+                <CCanvas>
+                    <OrthographicCamera makeDefault position={[3, 0, 10]} zoom={65} >
+                        <ambientLight/>
+                        <pointLight color="white" position={[0, 5, 5]} />
+                        <directionalLight color="hotpink" position={[0, 5, 5]} />
+                    </OrthographicCamera>
+                    <TrackballControls noZoom={true} noPan={true}/>
+                    <CustomSphere color={"red"}/>
+                </CCanvas>
+            </CanvasContainer>
+            
+            {/* <span data-diagram="box" id='dSphere' ></span> */}
         </HomeContainer>
     )
 }

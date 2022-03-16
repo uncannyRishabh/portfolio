@@ -3,11 +3,14 @@ import './App.css';
 import { AboutMe } from './component/aboutMe';
 import { HeroSection } from './component/heroSection';
 import { NavBar } from './component/navbar';
-import Project from './component/projects';
+import { Project } from './component/projects';
+import { Experience } from './component/experience';
+import { Contact } from './component/contact';
+import { Footer } from './component/footer';
 
 function App() {
-  const [isDark, toggleDark] = useState(false);
-  const toggle = () => (toggleDark(!isDark))
+  const [isdark, toggleDark] = useState(false);
+  const toggle = () => (toggleDark(!isdark))
 
   useEffect(() => {
     const json = localStorage.getItem("site-dark-mode");
@@ -21,29 +24,32 @@ function App() {
   },[])
 
   useEffect(() => {
-    const json = JSON.stringify(isDark);
+    const json = JSON.stringify(isdark);
     localStorage.setItem("site-dark-mode", json);
   })
 
   useEffect(() => {
     document.documentElement.style.setProperty(
       '--bg',
-      (isDark ? '#0D0E1B' : 'rgb(247,240,223)')
+      (isdark ? '#0D0E1B' : 'rgb(247,240,223)')
       )
 
       document.documentElement.style.setProperty(
         '--thumb_bg',
-        (!isDark ? 'rgb(30,20,30)' : 'rgba(255, 255, 255, 0.35)')
+        (!isdark ? 'rgb(30,20,30)' : 'rgba(255, 255, 255, 0.35)')
       )
 
-  },[isDark])
+  },[isdark])
 
   return (
     <div className="App">
-      <NavBar isDark={isDark} toggle={toggle}/>
-      <HeroSection isDark={isDark}/>
-      <AboutMe />
-      <Project/>
+      <NavBar isdark={isdark} toggle={toggle}/>
+      <HeroSection isdark={isdark}/>
+      <AboutMe isdark={isdark}/>
+      <Project isdark={isdark}/>
+      <Experience isdark={isdark}/>
+      <Contact />
+      <Footer />
     </div>
   );
 }

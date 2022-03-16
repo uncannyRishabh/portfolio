@@ -9,7 +9,7 @@ import lottieToggle from '../../assets/dark-mode.json'
 import '../../App.css'
 import { useCallback } from 'react/cjs/react.development'
 
-export const NavBar = ({isDark, toggle}) => {
+export const NavBar = ({isdark, toggle}) => {
 
     // window.onscroll = function() {
     //     let top = window.scrollY
@@ -82,12 +82,12 @@ export const NavBar = ({isDark, toggle}) => {
       }, [container]);
 
       useEffect(() => {
-          if(isDark) animation.playSegments([[40,45],[45,100]], true)
-      },[isDark,animation])
+          if(isdark) animation.playSegments([[40,45],[45,100]], true)
+      },[isdark,animation])
 
     const animate = () => {
         toggle()
-        if(isDark){
+        if(isdark){
             animation.playSegments([[100,58],[58,55]], true)
         }
         else {
@@ -103,48 +103,43 @@ export const NavBar = ({isDark, toggle}) => {
                         activeClass="active"
                         spy={true}
                         smooth={true}
-                        offset={-80}
                         duration={500}
                         >
-                    <Logo isDark = {isDark}>
-                        {'<'}<SLogo isDark = {isDark}>uncannyRishabh</SLogo>{'>'}
+                    <Logo isdark = {isdark.toString}>
+                        {'<'}<SLogo isdark = {isdark}>uncannyRishabh</SLogo>{'>'}
                     </Logo>
                 </HomeLink>
                 
                 <NavlinkContainer id='navlinkContainer'
-                 isDark = {isDark}>
+                 isdark = {isdark}>
                     <NavLinks to='AboutMe'
                         activeClass="active"
                         spy={true}
                         smooth={true}
-                        offset={-80}
                         duration={500}
-                        isDark = {isDark}>ABOUT ME</NavLinks>
-                    <NavLinks to='AboutMe'
+                        $isdark = {isdark}>ABOUT ME</NavLinks>
+                    <NavLinks to='Projects'
                         activeClass="active"
                         spy={true}
                         smooth={true}
-                        offset={-80}
                         duration={500}
-                        isDark = {isDark}>PROJECTS</NavLinks>
-                    <NavLinks to='AboutMe'
+                        isdark = {isdark}>PROJECTS</NavLinks>
+                    <NavLinks to='Experience'
                         activeClass="active"
                         spy={true}
                         smooth={true}
-                        offset={-80}
                         duration={500}
-                        isDark = {isDark}>EXPERIENCE</NavLinks>
-                    <NavLinks to='AboutMe'
+                        isdark = {isdark}>EXPERIENCE</NavLinks>
+                    <NavLinks to='Contact'
                         activeClass="active"
                         spy={true}
                         smooth={true}
-                        offset={-80}
                         duration={500}
-                        isDark = {isDark}>CONTACT</NavLinks>
+                        isdark = {isdark}>CONTACT</NavLinks>
                 </NavlinkContainer>
         </NavbarContainer>
         <Lottie id="darktoggle" onClick={animate}/>
         </Nav>
-        
+
   )
 };

@@ -1,10 +1,8 @@
 import React from 'react'
 import {ProjectContainer , } from './projectsElements'
 
-const Project = () => {
+export const Project = () => {
   return (
-    <ProjectContainer>Project</ProjectContainer>
+    <ProjectContainer id='Projects'>Projects</ProjectContainer>
   )
 }
-
-export default Project

@@ -56,7 +56,7 @@ const SlideIn = keyframes`
 `
 
 export const Logo = styled.div`
-    color: ${({isDark}) => (isDark ? '#fff' : '#000')};
+    color: ${({isdark}) => (isdark ? '#fff' : '#000')};
     overflow: hidden;
     display: flex;
     flex-direction: row;
@@ -64,7 +64,7 @@ export const Logo = styled.div`
 `
 
 export const SLogo = styled.span`
-    color: ${({isDark}) => (isDark ? '#fff' : '#000')};
+    color: ${({isdark}) => (isdark ? '#fff' : '#000')};
     /* background-color: #ffa; */
     display: flex;
     flex-direction: row;
@@ -96,9 +96,9 @@ export const NavlinkContainer = styled.div`
     border-radius: 16px;
     backdrop-filter: blur(6px);
     overflow: hidden;
-    background: ${({isDark}) => (isDark ? dark.navContainer : light.navContainer)};
+    background: ${({isdark}) => (isdark ? dark.navContainer : light.navContainer)};
     box-shadow: 3px 3px 10px -6px rgba(0, 0, 0, 0.25);
-    transition: all 1s ease-in-out;
+    transition: all .5s ease-in-out;
 
     @media screen and (max-width: 768px){
         position: fixed;
@@ -116,18 +116,18 @@ export const NavlinkContainer = styled.div`
 `
 
 export const NavLinks = styled(Link)`
-    color: ${({isDark}) => (isDark ? dark.navLink : light.navLink)};
+    color: ${({isdark}) => (isdark ? dark.navLink : light.navLink)};
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.04em;
-    text-shadow: 0px 0px 6px ${({isDark}) => (isDark ? dark.textShadow : light.textShadow)};
+    text-shadow: 0px 0px 6px ${({isdark}) => (isdark ? dark.textShadow : light.textShadow)};
     cursor: pointer;
     transition: all 0.5s ease-in-out;
 
     :hover {
         transition: text-shadow 0.2s ease-in-out;
-        text-shadow: 0px 0px 8px ${({isDark}) => (isDark ? dark.textShadowHover : light.textShadowHover)};
+        text-shadow: 0px 0px 8px ${({isdark}) => (isdark ? dark.textShadowHover : light.textShadowHover)};
     }
 
     @media screen and (max-width: 482px){
