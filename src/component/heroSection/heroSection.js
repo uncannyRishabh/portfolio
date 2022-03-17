@@ -3,32 +3,31 @@ import { motion } from 'framer-motion'
 import {dark, light} from '../../assets/colors'
 import { Canvas } from "react-three-fiber";
 
-export const HomeContainer = styled(motion.div)`
+export const HomeContainer = styled.div`
     display: flex;
     height: 100vh;
     width: 100%;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: ${({isdark}) => (isdark ? dark.appBackground : light.appBackground)};
-    transition: background-color .7s ease-in-out;
-    /* background-image: linear-gradient(to bottom , #695DEE, #D96A6A); */
+    max-width: 1500px;
+
     @media screen and (max-aspect-ratio: 13/14) {
+        align-items: center;
         flex-direction: column;
+    }
+
+    @media screen and (max-aspect-ratio: 4/3) {
+        align-items: center;
     }
 `
 
 export const Content = styled(motion.div)`
-    width: 100%;
     display: flex;
-    flex-direction: column;
+    height: 100%;
     order: 1;
     flex: 1 ;
-    position: relative;
+    /* align-items: center; */
+    justify-content: center;
     padding-inline: 6%;
-    transform-style: preserve-3d;
-    
-    /* transform: translate(30%); */
+    flex-direction: column;
 
     @media screen and (max-aspect-ratio: 13/14) {
         height: 50vh;
@@ -37,7 +36,12 @@ export const Content = styled(motion.div)`
     }
 `
 
-export const IntroL1 = styled(motion.h3)`
+export const Container = styled(motion.div)`
+    display: flex;
+    flex-direction: column;
+`
+
+export const IntroL1 = styled(motion.h1)`
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -45,11 +49,15 @@ export const IntroL1 = styled(motion.h3)`
     margin-bottom: 3%;
     color: ${({isdark}) => (isdark ? dark.h1Text : light.h1Text)};
     transform: matrix(1, 0, 0, 1.1, 0, 0);
-    transition: all .5s ease-in-out;
 
-    @media screen and (max-width: 768px){
-        font-size: 46px;
-        margin-bottom: 6%;
+    @media screen and (max-width: 980px){
+        font-size: 44px;
+        margin-bottom: 4%;
+    }
+
+    @media screen and (max-width: 660px){
+        font-size: 36px;
+        margin-bottom: 4%;
     }
 `
 
@@ -57,13 +65,16 @@ export const IntroL2 = styled(motion.h3)`
     font-family: Poppins;
     font-style: normal;
     font-weight: 500;
-    font-size: 26px;
+    font-size: 24px;
     letter-spacing: 0.03em;
     color: ${({isdark}) => (isdark ?  dark.h2Text : light.h2Text)};
-    transition: all .5s ease-in-out;
 
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 980px){
         font-size: 22px;
+    }
+
+    @media screen and (max-width: 660px){
+        font-size: 18px;
     }
 `
 
@@ -92,28 +103,26 @@ export const EmojiSpan = styled.span`
     }
 `
 
-export const CCanvas = styled(Canvas)`
-    width: 100%;
-    height: 100%;
-    /* order: 2; */
-    flex: 5;
-    /* @media screen and (max-width : 768px) {
-        flex-shrink: 4;
-        width: 80vw;
-    } */
-`
-
 export const CanvasContainer = styled.div`
     display: flex;
+    height: 100%;
     flex: .5;
     order: 2;
 
     @media screen and (max-width: 780px) {
         width: 30vw;
     }
+
+    @media screen and (max-aspect-ratio: 4/3) {
+        height: 70vh;
+    }
     
     @media screen and (max-aspect-ratio: 13/14) {
         height: 50vh;
         width: 80vw;
     }
+`
+
+export const CCanvas = styled(Canvas)`
+    display: block;
 `

@@ -20,13 +20,13 @@ const Word = ({isdark, children, ...props }) => {
     if (hovered) document.body.style.cursor = 'pointer'
     return () => (document.body.style.cursor = 'auto')
   }, [hovered])
-  // Tie component to the render-loop
+
   useFrame(({ camera }) => {
-    ref.current.material.color.set(isdark ? (hovered ? '#fa2720' : '#fff') : 'black')
+    ref.current.material.color.set(isdark ? (hovered ? '#0f5' : '#919aed') : 'black')
     // Make text face the camera
     ref.current.quaternion.copy(camera.quaternion)
     // Animate font color
-    ref.current.material.color.lerp(color.set(hovered ? '#fa2720' : 'white'), 0.1)
+    ref.current.material.color.lerp(color.set(hovered ? '#F00' : '#3c283c'), 0.1)
   })
 
   return <Text ref={ref} onPointerOver={over} onPointerOut={out} {...props} {...fontProps} children={children}/>
@@ -34,13 +34,13 @@ const Word = ({isdark, children, ...props }) => {
 
 const Cloud = ({ count , radius = 20, isdark }) => {
   const arr= useMemo(() =>  [[" "," "," "," "," "," "] 
-            ,["C"     ,"SQL","React","Figma","GLSL"," "]
-            ,["Java"  ,"Android","OpenCV","RxJava","AdobeXD"," "]
-            ,["Python","Debugging","Camera2Api","JavaScript","FireBase"," "]
-            ,["HTML"  ,"ThreeJS","Selenium","RxAndroid","Automation"," "]
-            ,["CSS"   ,"XML","Github","Ctrl+C","Ctrl+V"," "]
+            ,["C"     ,"SQL","React","Github","GLSL"," "]
+            ,["Java"  ,"Android","OpenCV","RxJava","Automation"," "]
+            ,["JavaScript","Debugging","Camera2Api","RxAndroid","FireBase"," "]
+            ,["HTML"  ,"ThreeJS","Selenium","Python","AdobeXD"," "]
+            ,["CSS"   ,"XML","Ctrl+C","Figma","Ctrl+V"," "]
             ,[" "," "," "," "," "," "]] 
-          , [])
+          , []) //tensorflow / tflite / MLKit / 
   const words = useMemo(() => {
     const temp = []
     const spherical = new THREE.Spherical()
@@ -53,7 +53,8 @@ const Cloud = ({ count , radius = 20, isdark }) => {
     temp.push([new THREE.Vector3(0,0,0), 'SKILLS' , fonts['Roboto Slab'], 2.9])
     return temp
   }, [arr,count, radius])
-  return words.map(([pos, word, font, fontSize], index) => <Word key={index} fontSize={fontSize} font={font} position={pos} children={word} isdark={isdark}/>)
+  return words.map(([pos, word, font, fontSize], index) =>
+   <Word key={index} fontSize={fontSize} font={font} position={pos} children={word} isdark={isdark}/>)
 }
 
 export const Mesh = ({isdark}) => {

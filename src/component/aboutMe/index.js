@@ -15,7 +15,7 @@ export const AboutMe = ({isdark}) => {
   const options = {
     root: null,
     rootMargin: "0px",
-    threshold: 0.5
+    threshold: 0.4
   }
 
   const [ref , isVisible] = useIsIntersecting(options)
@@ -52,21 +52,22 @@ export const AboutMe = ({isdark}) => {
 
   return (
     <AboutMeContainer id='AboutMe'>
-        <AboutContainer ref={ref} id="ac"
-         className='section'
-         variants={container}
-         initial={'hidden'}
-         animate={controls}>
+        <AboutContainer ref={ref}
+            variants={container}
+            initial={'hidden'}
+            animate={controls}>
            <Container>
               <AboutHeading isdark = {isdark} variants={item}>
                 About Me
               </AboutHeading>
               <Paragraph isdark = {isdark}  variants={item}>
-                Hello! My name is Rishabh and I enjoy creating things that live on the internet. My interest in web development started back in 2012 when I decided to try editing custom Tumblr themes — turns out hacking together a custom reblog button taught me a lot about HTML {'&'} CSS!
+                Hey there my name is Rishabh and I am a Computer Science Engineer. My interest in Computer Science started back in 2016 when I first flash a custom ROM on my Android. 
+                When not at work, youll find me watching films or playing football or taking pictures of random stuff.
               </Paragraph>
            </Container>
         </AboutContainer>
-        <CanvasContainer >
+      
+        <CanvasContainer>
           <CCanvas pixelRatio={window.devicePixelRatio}>
             <Suspense fallback={<>FAILED TO COMPILE SHADERS</>} >
               <Mesh isdark = {isdark}/>

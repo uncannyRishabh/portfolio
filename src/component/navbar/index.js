@@ -105,7 +105,7 @@ export const NavBar = ({isdark, toggle}) => {
                         smooth={true}
                         duration={500}
                         >
-                    <Logo isdark = {isdark.toString}>
+                    <Logo isdark = {isdark}>
                         {'<'}<SLogo isdark = {isdark}>uncannyRishabh</SLogo>{'>'}
                     </Logo>
                 </HomeLink>

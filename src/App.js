@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import { AboutMe } from './component/aboutMe';
 import { HeroSection } from './component/heroSection';
 import { NavBar } from './component/navbar';
@@ -7,6 +6,7 @@ import { Project } from './component/projects';
 import { Experience } from './component/experience';
 import { Contact } from './component/contact';
 import { Footer } from './component/footer';
+import './App.css';
 
 function App() {
   const [isdark, toggleDark] = useState(false);

@@ -7,11 +7,15 @@ export const AboutMeContainer = styled.div`
     display: flex;
     height: 100vh;
     width: 100%;
-    align-content: center;
-    flex-direction: row;
+    max-width: 1500px;
+
     @media screen and (max-aspect-ratio: 1/1) {
         align-items: center;
         flex-direction: column;
+    }
+
+    @media screen and (max-aspect-ratio: 4/3) {
+        align-items: center;
     }
 `
 
@@ -22,15 +26,15 @@ export const AboutContainer = styled(motion.div)`
     order: 1;
     padding-inline: 6%;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    @media screen and (max-aspect-ratio: 13/14) {
+    @media screen and (max-aspect-ratio: 1/1) {
+        justify-content: end;
         height: 50vh;
         width: 90%;
     }
 `
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
     display: flex;
     flex-direction: column;
 
@@ -38,24 +42,48 @@ export const Container = styled.div`
 
 export const AboutHeading = styled(motion.h1)`
     font-variant: small-caps;
-    font-size: xx-large;
+    font-size: 3.6em;
     margin-top: 18px;
     margin-bottom: 18px;
-    text-align: center;
-    color: ${({isdark}) => (isdark ? dark.bwText : light.bwText)};
+    color: ${({isdark}) => (isdark ? dark.h1Text : light.h1Text)};
+
+    @media screen and (max-width: 980px){
+        font-size: 2.7em;
+    }
+
+    @media screen and (max-width: 660px){
+        font-size: 1.9em;
+    }
 `
 
-export const CCanvas = styled(Canvas)`
-    display: block;
+export const Paragraph = styled(motion.p)`
+    color: ${({isdark}) => (isdark ? dark.h2Text : light.h2Text)};
+    height: 100%;
+    max-width: 700px;
+    overflow-y: hidden;
+
+    @media screen and (max-width: 980px){
+        font-size: .9em;
+    }
+
+    @media screen and (max-width: 660px){
+        font-size: .82em;
+    }
 `
 
 export const CanvasContainer = styled.div`
     display: flex;
-    flex: .7;
+    height: 90vh;
+    flex: .5;
     order: 2;
 
     @media screen and (max-width: 780px) {
+        height: 70vh;
         width: 35vw;
+    }
+
+    @media screen and (max-aspect-ratio: 4/3) {
+        height: 70vh;
     }
     
     @media screen and (max-aspect-ratio: 1/1) {
@@ -65,9 +93,6 @@ export const CanvasContainer = styled.div`
     }
 `
 
-export const Paragraph = styled(motion.p)`
-    color: ${({isdark}) => (isdark ? dark.bwText : light.bwText)};
-    height: 100%;
-    min-height: 280px;
-    overflow-y: scroll;
+export const CCanvas = styled(Canvas)`
+    display: block;
 `
