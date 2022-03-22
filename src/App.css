@@ -12,7 +12,6 @@ canvas {
     display: block;
 }
 
-
 *[data-diagram] {
     display: inline-block;
     width: 100%;
@@ -22,7 +21,6 @@ canvas {
     /* position: fixed; */
 }
 
-
 @media screen and (max-aspect-ratio: 13/14) {
     :root {
         --wc_radius : 32
@@ -31,15 +29,6 @@ canvas {
         height: 50vh;
         width: 80vw;
     }
-}
-
-.left {
-    float: left;
-    margin-right: .25em;
-}
-.right {
-    float: right;
-    margin-left: .25em;
 }
 
 @media screen and (max-width: 768px) {

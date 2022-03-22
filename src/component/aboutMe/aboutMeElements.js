@@ -6,11 +6,10 @@ import { dark,light } from "../../assets/colors";
 export const AboutMeContainer = styled.div`
     display: flex;
     height: 100vh;
-    width: 100%;
+    width: 98%;
     max-width: 1500px;
-
+    /* align-items: center; */
     @media screen and (max-aspect-ratio: 1/1) {
-        align-items: center;
         flex-direction: column;
     }
 
@@ -74,7 +73,7 @@ export const Paragraph = styled(motion.p)`
 export const CanvasContainer = styled.div`
     display: flex;
     height: 90vh;
-    flex: .5;
+    flex: .6;
     order: 2;
 
     @media screen and (max-width: 780px) {

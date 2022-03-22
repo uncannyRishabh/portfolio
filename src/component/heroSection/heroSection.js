@@ -6,7 +6,7 @@ import { Canvas } from "react-three-fiber";
 export const HomeContainer = styled.div`
     display: flex;
     height: 100vh;
-    width: 100%;
+    width: 98%;
     max-width: 1500px;
 
     @media screen and (max-aspect-ratio: 13/14) {
@@ -24,7 +24,6 @@ export const Content = styled(motion.div)`
     height: 100%;
     order: 1;
     flex: 1 ;
-    /* align-items: center; */
     justify-content: center;
     padding-inline: 6%;
     flex-direction: column;
@@ -118,6 +117,7 @@ export const CanvasContainer = styled.div`
     }
     
     @media screen and (max-aspect-ratio: 13/14) {
+        flex: 1;
         height: 50vh;
         width: 80vw;
     }
