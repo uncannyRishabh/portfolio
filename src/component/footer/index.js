@@ -4,7 +4,7 @@ import { FooterContainer } from './footerElements'
 export const Footer = () => {
   return (
     <FooterContainer>
-        Footer
+		FOOTER
     </FooterContainer>
   )
 }

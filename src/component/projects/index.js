@@ -1,18 +1,35 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import { ProjectItem } from './ProjectItem'
 import {Container, ProjectContainer ,ProjectHeading
 		,ProjectItemsContainer } from './projectsElements'
 import { useAnimation } from 'framer-motion'
 import { useIsIntersecting } from '../../utils/IntersectionObserver'
+import ers from '../../assets/ERS_IMG.png'
+import portfolio from '../../assets/Portfolio_IMG.png'
+
 
 export const Project = ({isdark}) => {
+
+	const [is768, setIs768] = useState(false)
+
+	const toggle = () => {
+        if(window.innerWidth <= 768){
+            setIs768(true)
+        }
+		else{
+			setIs768(false)
+		}
+    }
+
+	window.onresize = toggle
+	
 
 	const controls = useAnimation()
 	
 	const [ref , isVisible] = useIsIntersecting({
 		root: null,
 		rootMargin: "0px",
-		threshold: .3
+		threshold: .2
 	})
 
 	useEffect(() => {
@@ -50,18 +67,6 @@ export const Project = ({isdark}) => {
 		show: { opacity: 1 , y: 0 },
 	}
 
-	// const heading = {
-	// 	hidden: {
-	// 		opacity: 0,
-	// 	},
-	// 	show: {
-	// 		opacity: 1,
-	// 		transition : {
-	// 			duration: .5,
-	// 			 type: "tween",
-	// 		}
-	// 	},
-	// }
 
     return (
 		<ProjectContainer id='Projects'
@@ -78,23 +83,36 @@ export const Project = ({isdark}) => {
 			<Container >
 				<ProjectItemsContainer>
 					<ProjectItem 
-						Title={'CAMX'}
+						isdark={isdark}
+						Title={'CamX'}
 						Description={'This is the Description for the camera this is a personal project I built this Android studio in java virtual Machine yeah thats fine'}
-						// variants={item}
+						Tech={['Android','Java','MLKit API','Camera2 API']}
+						ProjectLink={"https://github.com/uncannyRishabh/camx"}
+						GithubLink={"https://github.com/uncannyRishabh/camx"}
+						Image={ers}
+						is768 = {is768}
 						/>
 					
 					<ProjectItem 
-						
-						Title={'CAMX'}
+						isdark={isdark}
+						Title={'Portfolio'}
 						Description={'This is the Description for the camera this is a personal project I built this Android studio in java virtual Machine yeah thats fine'}
-						// variants={item}
+						Tech={['React JS','Three JS','HTML','CSS']}
+						ProjectLink={""}
+						GithubLink={"https://github.com/uncannyRishabh/portfolio"}
+						Image={portfolio}
+						is768 = {is768}
 						/>
 					
 					<ProjectItem 
-						
-						Title={'CAMX'}
+						isdark={isdark}
+						Title={'ERS'}
 						Description={'This is the Description for the camera this is a personal project I built this Android studio in java virtual Machine yeah thats fine'}
-						// variants={item}
+						Tech={['Android','Java','Firebase']}
+						ProjectLink={"https://github.com/uncannyRishabh/ERS/releases/tag/initial-and-final"}
+						GithubLink={"https://github.com/uncannyRishabh/ERS"}
+						Image={ers}
+						is768 = {is768}
 						/>
 				</ProjectItemsContainer>
 			</Container>

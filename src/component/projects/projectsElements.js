@@ -22,8 +22,7 @@ export const ProjectHeading = styled(motion.h1)`
     font-variant: small-caps;
     margin-top: 10vh;
     margin-bottom: 18px;
-    width: 80%;
-    padding-inline: 6%;
+    width: 88%;
     color: ${({isdark}) => (isdark ? dark.h1Text : light.h1Text)};
 
     @media screen and (max-width: 980px){
@@ -40,5 +39,6 @@ export const ProjectItemsContainer = styled(motion.div)`
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    /* background-color: darkslateblue; */
     /* flex-wrap: wrap; */
 `
