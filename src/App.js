@@ -43,11 +43,11 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar isdark={isdark} toggle={toggle}/>
-      <HeroSection isdark={isdark}/>
-      <AboutMe isdark={isdark}/>
-      <Project isdark={isdark}/>
-      <Experience isdark={isdark}/>
+      <NavBar isdark={+isdark} toggle={toggle}/>
+      <HeroSection isdark={+isdark}/>
+      <AboutMe isdark={+isdark}/>
+      <Project isdark={+isdark}/>
+      <Experience isdark={+isdark}/>
       <Contact />
       <Footer />
     </div>

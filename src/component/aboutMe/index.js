@@ -1,10 +1,9 @@
-import React,{useEffect} from 'react';
+import React,{useEffect, Suspense} from 'react';
 import { AboutMeContainer, AboutContainer, CCanvas
         ,AboutHeading,Paragraph,
         CanvasContainer,
         Container} from './aboutMeElements'
 import {Mesh} from './wordCloud';
-import { Suspense } from 'react/cjs/react.development';
 import { useAnimation } from 'framer-motion';
 import { useIsIntersecting } from '../../utils/IntersectionObserver';
 

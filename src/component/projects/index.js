@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,useCallback} from 'react'
 import { ProjectItem } from './ProjectItem'
 import {Container, ProjectContainer ,ProjectHeading
 		,ProjectItemsContainer } from './projectsElements'
@@ -12,17 +12,25 @@ export const Project = ({isdark}) => {
 
 	const [is768, setIs768] = useState(false)
 
-	const toggle = () => {
+	 const toggle = useCallback(() => {
         if(window.innerWidth <= 768){
             setIs768(true)
         }
 		else{
 			setIs768(false)
 		}
-    }
+    },[])
 
-	window.onresize = toggle
-	
+	useEffect(() => {
+		window.addEventListener('resize',toggle)
+		return () => {
+			window.removeEventListener('resize',toggle)
+		}
+	},[toggle])
+
+	useEffect(() => {
+		toggle()
+	},[toggle])
 
 	const controls = useAnimation()
 	
@@ -39,8 +47,8 @@ export const Project = ({isdark}) => {
 		else {
 			controls.start("hidden")
 		}
-	})
-	
+	},[controls,isVisible])
+
 	const container = {
 		hidden: {
 		  transition:{
@@ -55,7 +63,6 @@ export const Project = ({isdark}) => {
 				when: "beforeChildren",
 			},
 		  },
-		
 	}
 	
 	const item = {

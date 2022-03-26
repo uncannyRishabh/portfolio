@@ -10,11 +10,15 @@ export const useIsIntersecting = (options) => {
     }
 
     useEffect(() => {
+		let tref = null
         const observer = new IntersectionObserver(Callback, options)
-        if(ref.current) observer.observe(ref.current)
+        if(ref.current) {
+			tref = ref.current
+			observer.observe(tref)
+		}
         
         return (() => {
-            if(ref.current) observer.unobserve(ref.current)
+            if(tref) observer.unobserve(tref)
         })
     })
 

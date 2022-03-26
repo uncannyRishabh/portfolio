@@ -7,7 +7,6 @@ import lottie from "lottie-web/build/player/lottie_light"
 import lottieToggle from '../../assets/dark-mode.json'
 
 import '../../App.css'
-// import { useCallback } from 'react/cjs/react.development'
 
 export const NavBar = ({isdark, toggle}) => {
 

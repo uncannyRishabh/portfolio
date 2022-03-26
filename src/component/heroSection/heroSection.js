@@ -1,7 +1,7 @@
 import styled, {keyframes} from "styled-components";
 import { motion } from 'framer-motion'
-import {dark, light} from '../../assets/colors'
 import { Canvas } from "react-three-fiber";
+import {dark, light} from '../../assets/colors'
 
 export const HomeContainer = styled.div`
     display: flex;

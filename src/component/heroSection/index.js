@@ -6,7 +6,6 @@ import { Content, EmojiSpan, HomeContainer,
 import { useAnimation } from 'framer-motion'
 import '../../App.css'
 import { CustomSphere } from './CustomSphere'
-import { TrackballControls } from '@react-three/drei'
 import { useIsIntersecting } from '../../utils/IntersectionObserver'
 // import { init } from '../../three-scripts/threeStarter'
 
@@ -23,7 +22,7 @@ export const HeroSection = ({isdark}) => {
         threshold: 0.4
     }
 
-    const [ref , isVisible] = useIsIntersecting(options)
+    const [ref, isVisible] = useIsIntersecting(options)
 
     useEffect(() => {
         if (isVisible) {
@@ -95,7 +94,6 @@ export const HeroSection = ({isdark}) => {
                 <CCanvas>
                         <ambientLight/>
                         <directionalLight color="hotpink" position={[0, 5, 5]} />
-                    <TrackballControls noZoom={true} noPan={true} noRotate={true}/>
                     <CustomSphere color={"red"}/>
                 </CCanvas>
             </CanvasContainer>

@@ -1,7 +1,7 @@
-import { Canvas } from "react-three-fiber";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-import { dark,light } from "../../assets/colors";
+import { motion } from 'framer-motion'
+import { Canvas } from "react-three-fiber";
+import {dark, light} from '../../assets/colors'
 
 export const AboutMeContainer = styled.div`
     display: flex;

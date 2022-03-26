@@ -71,7 +71,7 @@ export const Mesh = ({isdark}) => {
     <mesh ref={mesh} scale={0.1}>
       <fog attach="fog" args={['#202025', 0, 90]} />
       <Cloud count={5} radius={radius} isdark={isdark}/>
-      <OrbitControls ref={controls} autoRotate />
+      <OrbitControls ref={controls} autoRotate autoRotateSpeed={3}/>
     </mesh>
   )
 }

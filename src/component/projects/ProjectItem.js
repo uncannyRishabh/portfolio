@@ -48,7 +48,7 @@ export const ProjectItem = ( {Title, Description, Image, Tech
 	}
 
     const item = {
-		hidden: { opacity: 0 , y: 80,
+		hidden: { opacity: 0 , y: 20,
 			transition: {
 				type: 'tween',
 			}
@@ -56,7 +56,7 @@ export const ProjectItem = ( {Title, Description, Image, Tech
 		show: { opacity: 1 , y: 0,
             transition: {
                 type: 'tween',
-                duration: .3,
+                duration: .4,
             } },
 	}
 
@@ -74,7 +74,7 @@ export const ProjectItem = ( {Title, Description, Image, Tech
 	}
 
     const item768 = {
-		hidden: { opacity: 0, bottom: -10, right: 'auto',
+		hidden: { opacity: 0, bottom: -30, right: 'auto',
 			transition: {
 				type: 'tween',
 			}
@@ -82,7 +82,7 @@ export const ProjectItem = ( {Title, Description, Image, Tech
 		show: { opacity: 1, bottom: 0, right: 'auto',
             transition: {
                 type: 'tween',
-                duration: .3,
+                duration: .4,
             } },
 	}
 

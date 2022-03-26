@@ -1,5 +1,5 @@
 import { MeshDistortMaterial } from '@react-three/drei'
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { useFrame } from 'react-three-fiber'
 import * as THREE from 'three'
 
