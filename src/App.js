@@ -48,8 +48,8 @@ function App() {
       <AboutMe isdark={+isdark}/>
       <Project isdark={+isdark}/>
       <Experience isdark={+isdark}/>
-      <Contact />
-      <Footer />
+      <Contact isdark={+isdark} />
+      <Footer isdark={+isdark}/>
     </div>
   );
 }

@@ -29,7 +29,7 @@ export const Experience = ({isdark}) => {
 	const [ref , isVisible] = useIsIntersecting({
 		root: null,
 		rootMargin: "0px",
-		threshold: .5
+		threshold: .3
 	})
 
 	useEffect(() => {
@@ -45,7 +45,6 @@ export const Experience = ({isdark}) => {
 	const container = {
 		hidden: {
 		  transition:{
-			  delay: .2,
 			  duration: 1,
 		  },
 		},
@@ -67,7 +66,7 @@ export const Experience = ({isdark}) => {
 		},
 		show: { opacity: 1 , y: 0,
 			transition: {
-                delay: .5,
+                duration: .5,
             }
 		},
 	}
@@ -75,12 +74,12 @@ export const Experience = ({isdark}) => {
 	const itemS = {
 		hidden: { opacity: 0 , rotate: 900, scale: 0.1,
 			transition: {
+				duration: .1,
 				type: 'tween',
 			}
 		},
 		show: { opacity: 1 , rotate: 0, scale: 1,
             transition: {
-				delay: .3,
                 duration: .7,
             }
 		},

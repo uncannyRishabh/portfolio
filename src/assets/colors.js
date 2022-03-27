@@ -1,6 +1,6 @@
 export const light = {
     h1Text : 'rgb(30,20,30)',
-    h2Text : '#3c283c',
+    h2Text : 'rgb(60 40 60)',
     appBackground : 'rgb(247,240,223)',
     navLink : "rgb(30,20,30)",
     navContainer : "rgba(102,102,102,.4)",
@@ -18,4 +18,10 @@ export const dark = {
     textShadow : "rgba(0,0,0,.2)",
     textShadowHover : "rgba(255,255,255,.8)",
     bwText : "#fff",
+}
+
+export const colors = {
+	purple500 : 'rgb(95 90 170)',
+	purple200 : 'rgb(150,140,210)',
+	
 }
