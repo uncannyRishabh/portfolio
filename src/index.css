@@ -4,6 +4,7 @@
     font-family: "Poppins", Helvetica, sans-serif;
     -ms-overflow-style: none;
     scrollbar-gutter: auto;
+	user-select: none;
 }
 
 :root {

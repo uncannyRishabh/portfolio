@@ -1,4 +1,4 @@
-import React,{useEffect, useRef} from 'react'
+import React,{useEffect} from 'react'
 import { ExpContainer, ExperienceHeading
 		,ExperienceContainer, Fresher } from './experienceElements'
 import { useAnimation } from 'framer-motion'
@@ -6,22 +6,19 @@ import { useIsIntersecting } from '../../utils/IntersectionObserver'
 import { MathUtils } from 'three'
 
 export const Experience = ({isdark}) => {
-
-	const fresh = useRef()
 	
-	const broke = setTimeout(() => {
-		if(fresh.current) {
-		fresh.current.style.transition = 'transform .5s'
-		fresh.current.style.transform = 'rotate(-20deg)'
-		}
-		// console.clear()
-		return () => {
-			if(fresh.current)fresh.current.style.transition = 'none'
-		}
-	}, MathUtils.clamp( Math.random()*10000 + 1000, 3000, 5500) )
+	// const fresh = document.getElementById('Fresher')
+
+	// const broke = setTimeout(() => {
+	// 	console.log('Animation End')
+	// 	const fresh = document.getElementById('Fresher')
+	// 	fresh.style.transition = 'transform .5s'
+	// 	fresh.style.transform = 'rotate(-20deg)'
+	// }, MathUtils.clamp(Math.random()*10000 + 1000, 3000, 5500) )
 
 	const fix = () => {
-		fresh.current.style.transform = 'rotate(0deg)'
+		document.getElementById('Fresher').style
+		.transform = 'rotate(0deg)'
 	}
 
 	const controls = useAnimation()
@@ -33,14 +30,35 @@ export const Experience = ({isdark}) => {
 	})
 
 	useEffect(() => {
+		let t
 		if(isVisible) {
 			controls.start("show")
-			fresh.current.style.transition = 'none'
+			animateF()
+			t = setTimeout(() => {
+				document.getElementById('Fresher').style
+				.transform = `rotate(-20deg)`
+			},MathUtils.clamp(Math.random()*10000 + 300, 700, 2300))
 		}
 		else {
 			controls.start("hidden")
 		}
+
+		return () => {
+			document.getElementById('Fresher').style
+				.transform = `rotate(0deg)`
+			clearTimeout(t)
+		  };
 	},[isVisible,controls])
+
+	const animateF = () => {
+		document.getElementById('Fresher').animate([
+			{transform: 'rotate(900deg) scale(0)'},
+			{transform: 'rotate(0deg) scale(1)'}
+		],{
+			duration: 700,
+			iterations: 1,
+		})
+	}
 	
 	const container = {
 		hidden: {
@@ -51,11 +69,10 @@ export const Experience = ({isdark}) => {
 		show: {
 			transition: {
 				duration: 0,
-				staggerChildren: 0.20,
+				// staggerChildren: 0.20,
 				when: "beforeChildren",
 			},
 		  },
-		
 	}
 
 	const item = {
@@ -67,20 +84,6 @@ export const Experience = ({isdark}) => {
 		show: { opacity: 1 , y: 0,
 			transition: {
                 duration: .5,
-            }
-		},
-	}
-	
-	const itemS = {
-		hidden: { opacity: 0 , rotate: 900, scale: 0.1,
-			transition: {
-				duration: .1,
-				type: 'tween',
-			}
-		},
-		show: { opacity: 1 , rotate: 0, scale: 1,
-            transition: {
-                duration: .7,
             }
 		},
 	}
@@ -100,11 +103,9 @@ export const Experience = ({isdark}) => {
 			</ExperienceHeading>
 			<ExperienceContainer>
 				<Fresher
+					id='Fresher'
 					isdark={isdark}
-					variants={itemS}
 					onClick={fix}
-					onAnimationEnd={() => broke}
-					ref={fresh}
 					>
 					Fresher
 				</Fresher>

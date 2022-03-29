@@ -36,8 +36,9 @@ export const ExperienceContainer = styled.div`
     justify-content: center;
 `
 
-export const Fresher = styled(motion.h3)`
+export const Fresher = styled.h3`
     font-size: 3.5em;
-    color: blueviolet;
+    color: ${({isdark}) => (isdark ? 'white':light.h2Text)};
     cursor: pointer;
+	transition: transform .5s ease-in-out;
 `

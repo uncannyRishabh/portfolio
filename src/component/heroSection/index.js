@@ -93,8 +93,8 @@ export const HeroSection = ({isdark}) => {
             <CanvasContainer>
                 <CCanvas>
                         <ambientLight/>
-                        <directionalLight color="hotpink" position={[0, 5, 5]} />
-                    <CustomSphere color={"red"}/>
+                        <directionalLight color={isdark ? "lightblue":"pink"} position={[0, 5, 5]} />
+                    <CustomSphere color={isdark ? "rgb(210,25,50)":"red"}/>
                 </CCanvas>
             </CanvasContainer>
             

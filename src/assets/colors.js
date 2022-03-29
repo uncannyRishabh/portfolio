@@ -12,7 +12,7 @@ export const light = {
 export const dark = {
     h1Text : '#fff',
     h2Text : '#99A1E7',
-    appBackground : '#0D0E1B',
+    appBackground : 'rgb(13 14 27)',
     navLink : "#000",
     navContainer : "rgba(255,255,255,.5)",
     textShadow : "rgba(0,0,0,.2)",
@@ -22,6 +22,7 @@ export const dark = {
 
 export const colors = {
 	purple500 : 'rgb(95 90 170)',
+	purple300 : 'rgb(130,120,190)',
 	purple200 : 'rgb(150,140,210)',
 	
 }

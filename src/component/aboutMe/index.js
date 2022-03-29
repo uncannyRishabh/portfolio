@@ -31,6 +31,7 @@ export const AboutMe = ({isdark}) => {
   const container = {
     hidden: {
       transition:{
+		  type:'tween',
           duration: 2,
       },
     },
@@ -44,8 +45,38 @@ export const AboutMe = ({isdark}) => {
   }
 
   const item = {
-    hidden: { opacity: 0 , y: 60},
-    show: { opacity: 1 , y: 0 },
+    hidden: { opacity: 0 , y: 60,
+		transition:{
+			type:'tween',
+			duration: .5,
+		}
+	},
+    show: { opacity: 1 , y: 0,
+		transition:{
+			type: "spring",
+            damping: 8,
+            mass: .55,
+            stiffness: 200,
+			delay:.3,
+			// duration: .1,
+		}
+	},
+  }
+
+  const item1 = {
+    hidden: { opacity: 0 , y: 60,
+		transition:{
+			type:'tween',
+			duration: .5,
+		}
+	},
+    show: { opacity: 1 , y: 0,
+		transition:{
+			type:'tween',
+			delay:.3,
+			duration: .5,
+		}
+	},
   }
 
   return (
@@ -58,9 +89,10 @@ export const AboutMe = ({isdark}) => {
               <AboutHeading isdark = {isdark} variants={item}>
                 About Me
               </AboutHeading>
-              <Paragraph isdark = {isdark}  variants={item}>
-                Hey there my name is Rishabh and I am a Computer Science Engineer. My interest in Computer Science started back in 2016 when I first flash a custom ROM on my Android. 
-                When not at work, youll find me watching films or playing football or taking pictures of random stuff.
+              <Paragraph isdark = {isdark}  variants={item1}>
+                I am a Frontend developer and a Computer Science Student. Im curious about technology, particularly android. When Im not being curious I like to play football, convert nature to digital media and consume moving pictures. 
+				<br/><br/> 
+				Looking for a place to manoeuvre my Skillset. 
               </Paragraph>
            </Container>
         </AboutContainer>

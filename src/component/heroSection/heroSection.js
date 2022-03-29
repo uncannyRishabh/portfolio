@@ -49,6 +49,18 @@ export const IntroL1 = styled(motion.h1)`
     color: ${({isdark}) => (isdark ? dark.h1Text : light.h1Text)};
     transform: matrix(1, 0, 0, 1.1, 0, 0);
 
+	/* background: ${({isdark}) => (isdark ? 
+		`linear-gradient(${dark.appBackground} , rgb(13 14 27))`  : 
+		`linear-gradient(${light.h1Text}, rgb(60,40,60))` )}; */
+	background: ${({isdark}) => (isdark ? 
+		`linear-gradient(0deg, rgba(231,237,242,1) 0%, rgba(215,220,237,1) 23%, rgba(194,196,255,1) 100%)`  : 
+		`linear-gradient(0deg, rgb(30,20,30) 20%, rgba(100,80,100,1) 80%);` )};
+		
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+
     @media screen and (max-width: 980px){
         font-size: 44px;
         margin-bottom: 4%;
@@ -92,6 +104,13 @@ export const EmojiSpan = styled.span`
     cursor: default;
     transform-origin: 70% 70%;
     display: inline-block;
+
+	position: relative;
+
+	background: initial;
+	background-clip: initial;
+	-webkit-background-clip: initial;
+	-webkit-text-fill-color: initial;
 
     :hover {
         animation-name: ${wave};

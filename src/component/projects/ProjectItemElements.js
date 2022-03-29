@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { dark, light } from '../../assets/colors'
-import GitDark from '../../assets/GitHub-Mark-Light-64px.png'
+import { dark, light, colors } from '../../assets/colors'
 import GitLight from '../../assets/GitHub-Mark-64px.png'
 
 export const Container = styled(motion.div)`
@@ -102,7 +101,6 @@ export const Github = styled.div`
     height: 48px;
     width: 48px;
     border-radius: 24px;
-    /* background-color: aquamarine; */
     background-image: url(${GitLight});
     background-size: 50%;
     background-repeat: no-repeat;

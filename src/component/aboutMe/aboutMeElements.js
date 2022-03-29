@@ -36,7 +36,7 @@ export const AboutContainer = styled(motion.div)`
 export const Container = styled(motion.div)`
     display: flex;
     flex-direction: column;
-
+	margin-top: -25px;
 `
 
 export const AboutHeading = styled(motion.h1)`
@@ -72,22 +72,21 @@ export const Paragraph = styled(motion.p)`
 
 export const CanvasContainer = styled.div`
     display: flex;
-    height: 90vh;
+    height: 100vh;
     flex: .6;
     order: 2;
-
     @media screen and (max-width: 780px) {
         height: 70vh;
         width: 35vw;
     }
 
-    @media screen and (max-aspect-ratio: 4/3) {
+    @media screen and (max-aspect-ratio: 3/4) {
         height: 70vh;
     }
     
     @media screen and (max-aspect-ratio: 1/1) {
         flex: 1;
-        height: 50vh;
+        height: 60vh;
         width: 80vw;
     }
 `
