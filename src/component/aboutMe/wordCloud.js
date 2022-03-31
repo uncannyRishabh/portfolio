@@ -3,6 +3,7 @@ import { useRef, useState, useMemo, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { OrbitControls, Text } from '@react-three/drei'
 import { fonts } from '../../assets/fonts'
+import { a, useSpring} from '@react-spring/three'
 
 const Word = ({isdark, children, ...props }) => {
   const color = useMemo(() => new THREE.Color(), []) 
@@ -62,16 +63,38 @@ export const Mesh = ({isdark}) => {
   const controls = useRef()
   let radius = 17
 
+  const [down, setDown] = useState(false);
+
+  const { scale } = useSpring({
+	scale: down ? 0.11 : 0.09,
+	config: { mass: down? 2 : 1.5,
+		tension: down? 300 : 600,
+		friction: down? 16 : 13 }
+  });
+
   useEffect(() => {
     controls.current.enableZoom = false
     controls.current.enablePan = false
   })
 
   return (
-    <mesh ref={mesh} scale={0.1}>
+    <a.mesh ref={mesh}
+	scale={scale}
+	onPointerMissed={() => {
+		setDown(!down)
+		console.log("onPointerMissed")
+	}}
+	onPointerUp={() => {
+		console.log("onPointerUp")
+		setDown(false)
+	}}
+	onPointerDown={() => {
+		console.log("onPointerDown")
+		setDown(true)
+	}}>
       <fog attach="fog" args={['#202025', 0, 90]} />
       <Cloud count={5} radius={radius} isdark={isdark}/>
-      <OrbitControls ref={controls} autoRotate autoRotateSpeed={3}/>
-    </mesh>
+      <OrbitControls ref={controls} autoRotate autoRotateSpeed={down ? 2 : 3.5}/>
+    </a.mesh>
   )
 }

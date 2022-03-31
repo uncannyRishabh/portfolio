@@ -5,27 +5,9 @@ import {Nav, NavbarContainer,
     NavLinks, HomeLink} from './NavBarElements'
 import lottie from "lottie-web/build/player/lottie_light"
 import lottieToggle from '../../assets/dark-mode.json'
-
 import '../../App.css'
 
 export const NavBar = ({isdark, toggle}) => {
-
-    // window.onscroll = function() {
-    //     let top = window.scrollY
-    //     const Navbar = document.getElementById('Nav')
-    //     Navbar.style.transition = 'all .5s ease'
-    //     if(top >= 300) {
-    //         Navbar.style.backdropFilter = 'blur(6px)'
-    //          // box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-    //     }
-    //     else {
-    //         Navbar.style.backdropFilter = 'none'
-    //     }
-    // }
-
-    //ADDING .shine CLASS ON load
-    
-    
 
     let [width, updateWidth] = useState(window.innerWidth)
     updateWidth = () => width = window.innerWidth
@@ -75,25 +57,33 @@ export const NavBar = ({isdark, toggle}) => {
             renderer: 'svg',
             loop: false,
             autoplay: false,
-            duration: 1
+            duration: .3
         }))
 
-      }, [container]);
+    }, [container]);
 
-      useEffect(() => {
-          if(isdark) animation.playSegments([[40,45],[45,100]], true)
-      },[isdark,animation])
+    useEffect(() => {
+		if(isdark)
+			animation.playSegments([[40,45],[45,100]], true)
+  	},[isdark,animation])
 
-    const animate = () => {
-        toggle()
-        if(isdark){
+	const toggleAnimation = useCallback(() => {
+		if(isdark === 1){
+			console.log("DAY")
             animation.playSegments([[100,58],[58,55]], true)
         }
         else {
+			console.log("NIGHT")
             animation.playSegments([[40,45],[45,100]], true)
         }
+	},[animation,isdark])
+
+    const animate = () => {
+        toggle()
+        toggleAnimation()
     }
 
+	const duration = 200
 
     return (
         <Nav id="Nav">
@@ -102,7 +92,7 @@ export const NavBar = ({isdark, toggle}) => {
                         activeClass="active"
                         spy={true}
                         smooth={true}
-                        duration={500}
+                        duration={duration}
                         >
                     <Logo isdark = {isdark}>
                         {'<'}<SLogo isdark = {isdark}>uncannyRishabh</SLogo>{'>'}
@@ -115,30 +105,29 @@ export const NavBar = ({isdark, toggle}) => {
                         activeClass="active"
                         spy={true}
                         smooth={true}
-                        duration={500}
+                        duration={duration}
                         $isdark = {isdark}>ABOUT ME</NavLinks>
                     <NavLinks to='Projects'
                         activeClass="active"
                         spy={true}
                         smooth={true}
-                        duration={500}
+                        duration={duration}
                         isdark = {isdark}>PROJECTS</NavLinks>
                     <NavLinks to='Experience'
                         activeClass="active"
                         spy={true}
                         smooth={true}
-                        duration={500}
+                        duration={duration}
                         isdark = {isdark}>EXPERIENCE</NavLinks>
                     <NavLinks to='Contact'
                         activeClass="active"
                         spy={true}
                         smooth={true}
-                        duration={500}
+                        duration={duration}
                         isdark = {isdark}>CONTACT</NavLinks>
                 </NavlinkContainer>
         </NavbarContainer>
         <Lottie id="darktoggle" onClick={animate}/>
         </Nav>
-
   )
 };

@@ -32,12 +32,10 @@ export const AboutMe = ({isdark}) => {
     hidden: {
       transition:{
 		  type:'tween',
-          duration: 2,
       },
     },
     show: {
         transition: {
-            duration: 0,
             staggerChildren: 0.20,
             when: "beforeChildren",
         },
@@ -48,7 +46,6 @@ export const AboutMe = ({isdark}) => {
     hidden: { opacity: 0 , y: 60,
 		transition:{
 			type:'tween',
-			duration: .5,
 		}
 	},
     show: { opacity: 1 , y: 0,
@@ -56,40 +53,39 @@ export const AboutMe = ({isdark}) => {
 			type: "spring",
             damping: 8,
             mass: .55,
-            stiffness: 200,
-			delay:.3,
-			// duration: .1,
+            stiffness: 110,
+			duration: .3,
 		}
 	},
   }
 
-  const item1 = {
-    hidden: { opacity: 0 , y: 60,
-		transition:{
-			type:'tween',
-			duration: .5,
-		}
-	},
-    show: { opacity: 1 , y: 0,
-		transition:{
-			type:'tween',
-			delay:.3,
-			duration: .5,
-		}
-	},
-  }
+//   const item1 = {
+//     hidden: { opacity: 0 , y: 60,
+// 		transition:{
+// 			type:'tween',
+// 			duration: .1,
+// 		}
+// 	},
+//     show: { opacity: 1 , y: 0,
+// 		transition:{
+// 			type:'tween',
+// 			delay:.3,
+// 			duration: .3,
+// 		}
+// 	},
+//   }
 
   return (
     <AboutMeContainer id='AboutMe'>
-        <AboutContainer ref={ref}
+        <AboutContainer >
+           <Container ref={ref}
             variants={container}
             initial={'hidden'}
             animate={controls}>
-           <Container>
               <AboutHeading isdark = {isdark} variants={item}>
                 About Me
               </AboutHeading>
-              <Paragraph isdark = {isdark}  variants={item1}>
+              <Paragraph isdark = {isdark}  variants={item}>
                 I am a Frontend developer and a Computer Science Student. Im curious about technology, particularly android. When Im not being curious I like to play football, convert nature to digital media and consume moving pictures. 
 				<br/><br/> 
 				Looking for a place to manoeuvre my Skillset. 

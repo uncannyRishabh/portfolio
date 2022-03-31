@@ -9,7 +9,7 @@ import { CustomSphere } from './CustomSphere'
 import { useIsIntersecting } from '../../utils/IntersectionObserver'
 // import { init } from '../../three-scripts/threeStarter'
 
-export const HeroSection = ({isdark}) => {
+export const HeroSection = ({isdark ,toggle}) => {
     // window.addEventListener('DOMContentLoaded',()=>{
         // init()
     // })
@@ -94,7 +94,7 @@ export const HeroSection = ({isdark}) => {
                 <CCanvas>
                         <ambientLight/>
                         <directionalLight color={isdark ? "lightblue":"pink"} position={[0, 5, 5]} />
-                    <CustomSphere color={isdark ? "rgb(210,25,50)":"red"}/>
+                    <CustomSphere color={isdark ? "rgb(210,25,50)":"red"} toggle={toggle}/>
                 </CCanvas>
             </CanvasContainer>
             

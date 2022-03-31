@@ -13,10 +13,6 @@ function App() {
   const toggle = () => (toggleDark(!isdark))
 
   useEffect(() => {
-	
-  },[])
-
-  useEffect(() => {
     const json = localStorage.getItem("site-dark-mode");
     const currentMode = JSON.parse(json);
 
@@ -48,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <NavBar isdark={+isdark} toggle={toggle}/>
-      <HeroSection isdark={+isdark}/>
+      <HeroSection isdark={+isdark} toggle={toggle}/>
       <AboutMe isdark={+isdark}/>
       <Project isdark={+isdark}/>
       <Experience isdark={+isdark}/>

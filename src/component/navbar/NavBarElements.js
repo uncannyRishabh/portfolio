@@ -102,7 +102,7 @@ export const NavlinkContainer = styled.div`
 
     @media screen and (max-width: 768px){
         position: fixed;
-        bottom: 28px;
+        bottom: 16px;
         left: 50%;
         width: 84%;
         padding: 22px;

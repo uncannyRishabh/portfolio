@@ -37,7 +37,7 @@ export const Experience = ({isdark}) => {
 			t = setTimeout(() => {
 				document.getElementById('Fresher').style
 				.transform = `rotate(-20deg)`
-			},MathUtils.clamp(Math.random()*10000 + 300, 700, 2300))
+			},MathUtils.clamp(Math.random()*1000 + 600 , 700, 1500))
 		}
 		else {
 			controls.start("hidden")
@@ -55,7 +55,7 @@ export const Experience = ({isdark}) => {
 			{transform: 'rotate(900deg) scale(0)'},
 			{transform: 'rotate(0deg) scale(1)'}
 		],{
-			duration: 700,
+			duration: 600,
 			iterations: 1,
 		})
 	}
@@ -63,30 +63,32 @@ export const Experience = ({isdark}) => {
 	const container = {
 		hidden: {
 		  transition:{
-			  duration: 1,
+			  duration: .1,
 		  },
 		},
 		show: {
 			transition: {
-				duration: 0,
-				// staggerChildren: 0.20,
 				when: "beforeChildren",
 			},
 		  },
 	}
 
 	const item = {
-		hidden: { opacity: 0 , y: 80,
-			transition: {
-				type: 'tween',
+		hidden: { opacity: 0 , y: 60,
+			transition:{
+				type:'tween',
 			}
 		},
 		show: { opacity: 1 , y: 0,
-			transition: {
-                duration: .5,
-            }
+			transition:{
+				type: "spring",
+				damping: 8,
+				mass: .55,
+				stiffness: 110,
+				duration: .3,
+			}
 		},
-	}
+	  }
 
     return (
         <ExpContainer id='Experience'

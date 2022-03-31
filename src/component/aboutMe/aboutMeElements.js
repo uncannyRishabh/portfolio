@@ -44,6 +44,7 @@ export const AboutHeading = styled(motion.h1)`
     font-size: 3.6em;
     margin-top: 18px;
     margin-bottom: 18px;
+	transform: matrix(1, 0, 0, 1.1, 0, 0);
     color: ${({isdark}) => (isdark ? dark.h1Text : light.h1Text)};
 
     @media screen and (max-width: 980px){

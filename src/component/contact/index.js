@@ -46,9 +46,20 @@ export const Contact = ({isdark}) => {
 
 	const item = {
 		hidden: { opacity: 0 , y: 60,
+			transition:{
+				type:'tween',
+			}
 		},
-		show: { opacity: 1 , y: 0 },
-	}
+		show: { opacity: 1 , y: 0,
+			transition:{
+				type: "spring",
+				damping: 8,
+				mass: .55,
+				stiffness: 110,
+				duration: .3,
+			}
+		},
+	  }
 
 	return (
 		<ContactContainer id='Contact'
