@@ -16,7 +16,7 @@ export const Contact = ({isdark}) => {
 	const [ref , isVisible] = useIsIntersecting({
 		root: null,
 		rootMargin: "0px",
-		threshold: .3
+		threshold: .4
 	})
 
 	useEffect(() => {
@@ -59,7 +59,7 @@ export const Contact = ({isdark}) => {
 				duration: .3,
 			}
 		},
-	  }
+	}
 
 	return (
 		<ContactContainer id='Contact'

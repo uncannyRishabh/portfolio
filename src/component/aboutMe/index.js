@@ -59,22 +59,6 @@ export const AboutMe = ({isdark}) => {
 	},
   }
 
-//   const item1 = {
-//     hidden: { opacity: 0 , y: 60,
-// 		transition:{
-// 			type:'tween',
-// 			duration: .1,
-// 		}
-// 	},
-//     show: { opacity: 1 , y: 0,
-// 		transition:{
-// 			type:'tween',
-// 			delay:.3,
-// 			duration: .3,
-// 		}
-// 	},
-//   }
-
   return (
     <AboutMeContainer id='AboutMe'>
         <AboutContainer >
@@ -89,7 +73,8 @@ export const AboutMe = ({isdark}) => {
                 I am a Frontend developer and a Computer Science Student. Im curious about technology, particularly android. When Im not being curious I like to play football, convert nature to digital media and consume moving pictures. 
 				<br/><br/> 
 				Looking for a place to manoeuvre my Skillset. 
-              </Paragraph>
+				<br/>
+			  </Paragraph>
            </Container>
         </AboutContainer>
       

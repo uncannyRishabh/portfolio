@@ -93,7 +93,7 @@ export const Project = ({isdark}) => {
 					<ProjectItem 
 						isdark={isdark}
 						Title={'CamX'}
-						Description={'An open source Camera app which can leverage auxiliary cameras in any smartphone. Camx features all* the functionalities of a stock camera app and supports from android version 7 to 12.'}
+						Description={`An open source Camera app which can leverage auxiliary cameras in any smartphone. Camx features ${<span>*all the functionalities</span>} of a stock camera app and supports from android version 7 to 12.`}
 						Tech={['Android','Java','MLKit API','Camera2 API','RxJava']}
 						ProjectLink={"https://github.com/uncannyRishabh/camx"}
 						GithubLink={"https://github.com/uncannyRishabh/camx"}

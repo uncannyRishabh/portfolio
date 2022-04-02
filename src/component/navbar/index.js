@@ -2,10 +2,15 @@ import React, { useEffect, useState, useCallback } from 'react'
 import {Nav, NavbarContainer,
     Logo, SLogo,Lottie,
     NavlinkContainer,
-    NavLinks, HomeLink} from './NavBarElements'
+    NavLinks, HomeLink, Icon} from './NavBarElements'
 import lottie from "lottie-web/build/player/lottie_light"
 import lottieToggle from '../../assets/dark-mode.json'
 import '../../App.css'
+import ICaboutme from '../../assets/navIcons/about_me_user_icon.png'
+import ICcontact from '../../assets/navIcons/contact_call_icon.png'
+import ICexperience from '../../assets/navIcons/experience_star_icon.png'
+import ICprojects from '../../assets/navIcons/projects_design_icon.png'
+
 
 export const NavBar = ({isdark, toggle}) => {
 
@@ -101,33 +106,39 @@ export const NavBar = ({isdark, toggle}) => {
                 
                 <NavlinkContainer id='navlinkContainer'
                  isdark = {isdark}>
-                    <NavLinks to='AboutMe'
-                        activeClass="active"
-                        spy={true}
-                        smooth={true}
-                        duration={duration}
-                        $isdark = {isdark}>ABOUT ME</NavLinks>
-                    <NavLinks to='Projects'
-                        activeClass="active"
-                        spy={true}
-                        smooth={true}
-                        duration={duration}
-                        isdark = {isdark}>PROJECTS</NavLinks>
-                    <NavLinks to='Experience'
-                        activeClass="active"
-                        spy={true}
-                        smooth={true}
-                        duration={duration}
-                        isdark = {isdark}>EXPERIENCE</NavLinks>
-                    <NavLinks to='Contact'
-                        activeClass="active"
-                        spy={true}
-                        smooth={true}
-                        duration={duration}
-                        isdark = {isdark}>CONTACT</NavLinks>
+					<NavIcon to='AboutMe'
+						isdark={isdark}
+						Image={ICaboutme}
+					 	Text='About Me'/>
+					<NavIcon to='Projects'
+						isdark={isdark}
+						Image={ICprojects}
+					 	Text='Projects'/>
+					<NavIcon to='Experience'
+						isdark={isdark}
+						Image={ICexperience}
+					 	Text='Experience'/>
+					<NavIcon to='Contact'
+						isdark={isdark}
+						Image={ICcontact}
+					 	Text='Contact'/>
                 </NavlinkContainer>
         </NavbarContainer>
         <Lottie id="darktoggle" onClick={animate}/>
         </Nav>
   )
 };
+
+const NavIcon = ({to,isdark,Image,Text,duration=150}) => {
+	return (
+		<NavLinks to={to}
+			activeClass="active"
+			spy={true}
+			smooth={true}
+			isdark={isdark}
+			duration={duration}>
+				<Icon iurl={Image}/>
+				{Text}
+		</NavLinks>
+	)
+}

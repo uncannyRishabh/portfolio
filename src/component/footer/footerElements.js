@@ -4,14 +4,18 @@ import { dark,light } from '../../assets/colors'
 export const FooterContainer = styled.div`
     display: flex;
     width: 98%;
-	height: 45vh;
+	height: 35vh;
     max-width: 1500px;
 	justify-content: center;
     align-items: center;
     flex-direction: column;
 
 	@media screen and (max-width: 768px) {
-		height: 35vh;	
+		height: 25vh;	
+	}
+
+	@media (max-aspect-ratio: 9/21) {
+		height: 20vh;	
 	}
 `
 

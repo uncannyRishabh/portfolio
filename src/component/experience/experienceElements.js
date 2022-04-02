@@ -30,14 +30,13 @@ export const ExperienceHeading = styled(motion.h1)`
 
 export const ExperienceContainer = styled.div`
     height: 100%;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 `
 
 export const Fresher = styled.h3`
-    font-size: 3.5em;
+	font-size: 44px;
     color: ${({isdark}) => (isdark ? 'white':light.h2Text)};
     cursor: pointer;
 	transition: transform .5s ease-in-out;

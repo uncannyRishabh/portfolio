@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { dark, light, colors } from '../../assets/colors'
+import { dark, light } from '../../assets/colors'
 import GitLight from '../../assets/GitHub-Mark-64px.png'
 
 export const Container = styled(motion.div)`
@@ -44,7 +44,10 @@ export const PTitle = styled.h2`
 export const PContainer = styled(motion.div)`
     width: 55%;
     display: flex;
-    padding: 20px;
+    padding-top: 24px;
+    padding-bottom: 18px;
+	padding-left: 30px;
+	padding-right: 24px;
     flex-direction: column;
     background-color: aliceblue;
     justify-content: center;
@@ -57,8 +60,14 @@ export const PContainer = styled(motion.div)`
         background: linear-gradient(rgba(250,250,250,.3),rgba(255,255,255,1));
         flex: auto;
         bottom: 0;
-        
     }
+
+	@media screen and (max-width: 482px) {
+		padding-top: 24px;
+		padding-bottom: 16px;
+		padding-left: 18px;
+		padding-right: 16px;
+	}
 `
 
 export const PDescription = styled.p`

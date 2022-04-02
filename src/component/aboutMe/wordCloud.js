@@ -4,6 +4,7 @@ import { useFrame } from '@react-three/fiber'
 import { OrbitControls, Text } from '@react-three/drei'
 import { fonts } from '../../assets/fonts'
 import { a, useSpring} from '@react-spring/three'
+import ReactGA from 'react-ga4'
 
 const Word = ({isdark, children, ...props }) => {
   const color = useMemo(() => new THREE.Color(), []) 
@@ -82,14 +83,21 @@ export const Mesh = ({isdark}) => {
 	scale={scale}
 	onPointerMissed={() => {
 		setDown(!down)
-		console.log("onPointerMissed")
+		// console.log("onPointerMissed")
 	}}
 	onPointerUp={() => {
-		console.log("onPointerUp")
+		// console.log("onPointerUp")
 		setDown(false)
 	}}
 	onPointerDown={() => {
-		console.log("onPointerDown")
+		let count = 0;
+		ReactGA.event({
+			category: "3D interaction",
+			action: "Fondling",
+			label: "Word Cloud Fondling",
+			value: ++count,
+		  });
+		// console.log("onPointerDown")
 		setDown(true)
 	}}>
       <fog attach="fog" args={['#202025', 0, 90]} />

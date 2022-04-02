@@ -85,7 +85,7 @@ export const IntroL2 = styled(motion.h3)`
     }
 
     @media screen and (max-width: 660px){
-        font-size: 18px;
+        font-size: 16px;
     }
 `
 

@@ -93,7 +93,7 @@ export const NavlinkContainer = styled.div`
     align-items:center;
     padding: 23px;
     padding-inline: 36px;
-    border-radius: 16px;
+    border-radius: 14px;
     backdrop-filter: blur(6px);
     overflow: hidden;
     background: ${({isdark}) => (isdark ? dark.navContainer : light.navContainer)};
@@ -105,14 +105,20 @@ export const NavlinkContainer = styled.div`
         bottom: 16px;
         left: 50%;
         width: 84%;
-        padding: 22px;
-        padding-inline: 28px;
+        padding: 10px;
+        padding-inline: 34px;
         transform: translate(-50%);
+		border-radius: 12px;
     }
 
     @media screen and (max-width: 600px) {
         width: 74%;
     }
+
+	@media (max-aspect-ratio: 9/16) {
+		padding: 6px;
+        padding-inline: 24px;
+	}
 `
 
 export const NavLinks = styled(Link)`
@@ -125,6 +131,9 @@ export const NavLinks = styled(Link)`
     cursor: pointer;
     transition: all 0.5s ease-in-out;
 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
     :hover {
         transition: text-shadow 0.2s ease-in-out;
         text-shadow: 0px 0px 8px ${({isdark}) => (isdark ? dark.textShadowHover : light.textShadowHover)};
@@ -132,8 +141,12 @@ export const NavLinks = styled(Link)`
 
     @media screen and (max-width: 482px){
         font-size: 11px;
-        /* font-weight: 300; */
     }
+
+	@media (max-aspect-ratio: 9/16) {
+		font-size: 9px;
+		color: #303C42;
+	}
 `
 
 export const HomeLink = styled(Link)`
@@ -144,4 +157,18 @@ export const HomeLink = styled(Link)`
 export const Lottie = styled.div`
     height: 86px;
     width: 86px;
+`
+
+export const Icon = styled.div`
+	height: 0;
+	width: 0;
+	background-image: ${props => `url(${props.iurl})`};
+    background-size: 60%;
+	background-repeat: no-repeat;
+    background-position: 40% 70%;
+    border-radius: 4px;
+	@media screen and (max-width: 768px) {
+		height: 30px;
+		width: 30px;
+	}
 `

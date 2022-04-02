@@ -7,15 +7,6 @@ import { MathUtils } from 'three'
 
 export const Experience = ({isdark}) => {
 	
-	// const fresh = document.getElementById('Fresher')
-
-	// const broke = setTimeout(() => {
-	// 	console.log('Animation End')
-	// 	const fresh = document.getElementById('Fresher')
-	// 	fresh.style.transition = 'transform .5s'
-	// 	fresh.style.transform = 'rotate(-20deg)'
-	// }, MathUtils.clamp(Math.random()*10000 + 1000, 3000, 5500) )
-
 	const fix = () => {
 		document.getElementById('Fresher').style
 		.transform = 'rotate(0deg)'
@@ -53,7 +44,7 @@ export const Experience = ({isdark}) => {
 	const animateF = () => {
 		document.getElementById('Fresher').animate([
 			{transform: 'rotate(900deg) scale(0)'},
-			{transform: 'rotate(0deg) scale(1)'}
+			{transform: 'rotate(0deg)   scale(1)'}
 		],{
 			duration: 600,
 			iterations: 1,
