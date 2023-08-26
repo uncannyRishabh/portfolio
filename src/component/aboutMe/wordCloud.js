@@ -36,11 +36,11 @@ const Word = ({isdark, children, ...props }) => {
 
 const Cloud = ({ count , radius = 20, isdark }) => {
   const arr= useMemo(() =>  [[" "," "," "," "," "," "] 
-            ,["C"     ,"SQL","React","Github","GLSL"," "]
-            ,["Java"  ,"Android","OpenCV","RxJava","Automation"," "]
+            ,["C"     ,"SQL","React","OpenCV","GLSL"," "]
+            ,["Java"  ,"Android","SAP Hybris","RxJava","AdobeXD"," "]
             ,["JavaScript","Debugging","Camera2Api","RxAndroid","FireBase"," "]
-            ,["HTML"  ,"ThreeJS","Selenium","Python","AdobeXD"," "]
-            ,["CSS"   ,"XML","Ctrl+C","Figma","Ctrl+V"," "]
+            ,["HTML"  ,"ThreeJS","Selenium","Python","Automation"," "]
+            ,["CSS"   ,"Git","Ctrl+C","Figma","Ctrl+V"," "]
             ,[" "," "," "," "," "," "]] 
           , []) //tensorflow / tflite / MLKit / 
   const words = useMemo(() => {

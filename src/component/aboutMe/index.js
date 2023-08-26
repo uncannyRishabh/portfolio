@@ -70,9 +70,9 @@ export const AboutMe = ({isdark}) => {
                 About Me
               </AboutHeading>
               <Paragraph isdark = {isdark}  variants={item}>
-                I am a Frontend developer and a Computer Science Student. Im curious about technology, particularly android. When Im not being curious I like to play football, convert nature to digital media and consume moving pictures. 
+                I am a Frontend developer and a Computer Science Student. I'm curious about technology, particularly android. When I'm not being curious I like to play football, convert nature to digital media and consume moving pictures. 
 				<br/><br/> 
-				Looking for a place to manoeuvre my Skillset. 
+				Looking for some place to manifest my skillset.
 				<br/>
 			  </Paragraph>
            </Container>
