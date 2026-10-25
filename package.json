@@ -8,7 +8,6 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
-    "drei": "^1.0.0",
     "framer-motion": "^6.2.4",
     "lottie-web": "^5.8.1",
     "nth-check": "^2.0.1",
@@ -22,7 +21,7 @@
     "react-three-fiber": "^6.0.13",
     "simplex-noise": "^3.0.1",
     "styled-components": "^5.3.3",
-    "three": "^0.137.5"
+    "three": "^0.140.2"
   },
   "scripts": {
     "predeploy": "npm run build",
